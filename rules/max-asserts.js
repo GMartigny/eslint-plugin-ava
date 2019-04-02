@@ -7,6 +7,7 @@ const notAssertionMethods = ['plan', 'end'];
 
 const create = context => {
 	const ava = createAvaRule();
+	console.log(context.options);
 	const maxAssertions = context.options[0] || 5;
 	let assertionCount = 0;
 	let nodeToReport = null;
@@ -56,7 +57,15 @@ const create = context => {
 };
 
 const schema = [{
-	type: 'integer'
+	type: 'integer',
+	default: 5,
+	// This would works instead
+	// properties: {
+	// 	max: {
+	// 		type: 'integer',
+	// 		default: 5,
+	// 	}
+	// }
 }];
 
 module.exports = {
